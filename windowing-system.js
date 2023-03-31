@@ -37,4 +37,15 @@ export class ProgramWindow {
         this.size.width = Math.max(Math.min(this.position.x + newSize.width, this.screenSize.width - this.position.x), 1);
         this.size.height = Math.max(Math.min(this.position.y + newSize.height, this.screenSize.height - this.position.y), 1);
     }
+
+    move(newPosition) {
+        this.position.x = Math.max(Math.min(newPosition.x, this.screenSize.width - this.size.width), 0);
+        this.position.y = Math.max(Math.min(newPosition.y, this.screenSize.height - this.size.height), 0);
+    }
+}
+
+export function changeWindow(programWindow) {
+    programWindow.resize(new Size(400, 300));
+    programWindow.move(new Position(100, 150));
+    return programWindow;
 }
