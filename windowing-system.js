@@ -32,4 +32,9 @@ export class ProgramWindow {
         this.size = new Size();
         this.position = new Position();
     }
+
+    resize(newSize) {
+        this.size.width = Math.max(Math.min(this.position.x + newSize.width, this.screenSize.width - this.position.x), 1);
+        this.size.height = Math.max(Math.min(this.position.y + newSize.height, this.screenSize.height - this.position.y), 1);
+    }
 }
